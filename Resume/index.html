@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/styles.css" />
+		<link href='http://fonts.googleapis.com/css?family=Share+Tech+Mono' rel='stylesheet' type='text/css' />
+		<link href='http://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="js/pong.js"></script>
+		<script src="js/landing.js"></script>
+	</head>
+	<body>
+		<div class="mainContainer">
+			<canvas id="theCanvas" width="100%" height="100%"></canvas>
+			<div class="mainInfo">
+				<div class="name" style="display:none;">
+					Seneca Smith
+				</div>
+				<div class="description" style="display:none;">
+					<!-- Programmer -->
+					<div id="playButton">
+						Play Pong
+					</div>
+					<div class="instructions">
+						Left Paddle : e,d | Right Paddle : i,k<br>
+						Play to 7
+					</div>
+					<div id="seeResume">
+						See R&eacute;sum&eacute;
+					</div>
+				</div>
+			</div>
+			<div id="winner">
+				<div id="who"></div>
+				<div id="playAgain">
+					<div class="playText">Play Again</div>
+					<div style="font-size:10px;font-family:Arial;text-align:center;">Tip: Widen your browser for easier play</div>
+				</div>
+			</div>
+			<div id="leftPlayerScore">0</div>
+			<div id="rightPlayerScore">0</div>
+		</div>
+		
+		<script>
+			$(document).ready(function() {
+				var landingPage = new LandingPage();
+				landingPage.initialize();
+			});			
+		</script>
+	</body>
+</html>

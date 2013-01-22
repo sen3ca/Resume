@@ -154,7 +154,7 @@ var Pong = function() {
 	
     var drawLeftPaddle = function() {
     	ctx.fillStyle = "rgb(255, 255, 255)";
-    	leftPaddle.y = leftPaddle.y+leftPaddle.velocity;reset
+    	leftPaddle.y = leftPaddle.y+leftPaddle.velocity;
     	ctx.fillRect(leftPaddle.x, leftPaddle.y, 20, 100);
     };
 

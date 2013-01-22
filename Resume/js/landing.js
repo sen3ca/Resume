@@ -4,17 +4,17 @@ var LandingPage = function(){
 		name = $('.name').text().replace(/^\s+|\s+$/g, '');
 		var newNameHtml = '';
 				
-		for ( i=0 ; i < name.length ; i++ ) {
+		for ( var i=0 ; i < name.length ; i++ ) {
 			newNameHtml+='<span>'+name[i]+'</span>';
 		}
 		
 		$('.name').html(newNameHtml);
 
-		for( i=0 ; i < name.length ; i++) {
+		for( var i=0 ; i < name.length ; i++) {
 			LandingPage.intervals[i] = setInterval("LandingPage.randomChar("+i+")",70);
 		} 
 
-		for( i=0 ; i < name.length ; i++) {
+		for( var i=0 ; i < name.length ; i++) {
 			setTimeout("LandingPage.clearIntervalResetChar("+i+")", Math.random()*10000%3000);
 		}
 		
@@ -39,15 +39,15 @@ LandingPage.intervals = [];
 
 LandingPage.randomizeCharacter = function() {
 	return Math.random().toString(36).substr(3,1);
-}
+};
 
 LandingPage.randomChar = function(i) {
 	if(name[i] != ' ') {
 		$('.name span:eq('+i+')').text(LandingPage.randomizeCharacter());
 	}
-}
+};
 
 LandingPage.clearIntervalResetChar = function(i) {
 	clearInterval(LandingPage.intervals[i]);
 	$('.name span:eq('+i+')').text(name[i]);
-}
+};

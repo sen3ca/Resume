@@ -53,12 +53,18 @@ function getCustom($resumeId) {
 	return executeAndConvertToJson($query);
 }
 
-
-function insertResume($name, $email, $password){
+// this is vulnerable to SQL Injection
+function getEducation($resumeId) {
 	global $mysqli;
-	$query = "INSERT INTO resume(name, email, password) VALUES (?, ?, ?)";
+	$query = "select * from education where resume_id = $resumeId";
+	return executeAndConvertToJson($query);
+}
+
+function insertResume($name, $email, $jobTitle, $password){
+	global $mysqli;
+	$query = "INSERT INTO resume(name, email, job_title, password) VALUES (?, ?, ?, ?)";
 	$stmt = $mysqli->prepare($query);
-	$stmt->bind_param("sss", $name, $email, $password);
+	$stmt->bind_param("ssss", $name, $email, $jobTitle, $password);
 	$stmt->execute();
 	return mysqli_insert_id($mysqli);
 }
@@ -76,8 +82,7 @@ function insertSkill($resumeId, $skill, $proficiency){
 	$query = "INSERT INTO skill(resume_id, skill, proficiency) VALUES (?, ?, ?)";
 	$stmt = $mysqli->prepare($query);
 	$stmt->bind_param("isi", $resumeId, $skill, $proficiency);
-	$stmt->execute();
-	
+	$stmt->execute();	
 }
 
 function insertJob($resumeId, $companyName, $beginDate, $endDate, $description, $satisfaction){
@@ -85,6 +90,14 @@ function insertJob($resumeId, $companyName, $beginDate, $endDate, $description, 
 	$query = "INSERT INTO job_history(resume_id, company_name, begin_date, end_date, description, satisfaction) VALUES (?, ?, ?, ?, ?, ?)";
 	$stmt = $mysqli->prepare($query);
 	$stmt->bind_param("issssi", $resumeId, $companyName, $beginDate, $endDate, $description, $satisfaction);
+	$stmt->execute();
+}
+
+function insertEducation($resumeId, $schoolName, $beginDate, $endDate, $description){
+	global $mysqli;
+	$query = "INSERT INTO education(resume_id, school_name, start_date, end_date, description) VALUES (?, ?, ?, ?, ?)";
+	$stmt = $mysqli->prepare($query);
+	$stmt->bind_param("issss", $resumeId, $schoolName, $beginDate, $endDate, $description);
 	$stmt->execute();
 }
 

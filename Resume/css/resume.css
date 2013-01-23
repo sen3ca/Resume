@@ -1,3 +1,61 @@
+body {
+  width: 100%;
+  min-height: 2000px;
+  margin: 0; }
+
+.cover {
+  z-index: 2;
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: black; }
+
+#resumeListPage {
+  margin-left: 80px;
+  width: 800px; }
+  #resumeListPage .titleHolder {
+    position: relative;
+    margin-top: 30px;
+    margin-left: 10px;
+    height: 100px;
+    width: 100%;
+    font-smooth: always;
+    background-color: black;
+    font-family: 'Archivo Black';
+    color: white;
+    font-size: 100px; }
+    #resumeListPage .titleHolder .title {
+      position: absolute;
+      right: 0;
+      top: -20px; }
+
+#resumePage {
+  margin-top: 20px;
+  padding: 20px;
+  box-shadow: 10px 10px 5px #888888;
+  background-color: white;
+  position: relative;
+  margin-left: -500px;
+  left: 50%;
+  width: 960px;
+  height: 100%;
+  min-height: 100%;
+  min-width: 800px;
+  border: black 1px solid; }
+  #resumePage .resume {
+    margin-bottom: 10px; }
+    #resumePage .resume .name {
+      text-align: right;
+      font-size: 50px; }
+    #resumePage .resume .jobTitle {
+      text-align: right;
+      font-size: 20px; }
+    #resumePage .resume .email {
+      text-align: right;
+      font-size: 20px; }
+
 #resumes .resume {
   font-size: 40px;
   width: 100px;
@@ -6,4 +64,11 @@
   padding: 5px;
   margin: 10px;
   overflow: hidden;
-  float: left; }
+  cursor: pointer; }
+
+.headerWrapper {
+  margin-top: 15px;
+  border-bottom: 1px solid black; }
+  .headerWrapper .header {
+    font-family: 'Archivo Black';
+    font-size: 30px; }

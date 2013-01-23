@@ -29,13 +29,15 @@
 			App.resumes.fetch().then(function() {
 				new App.Views.Resumes({ collection: App.resumes });
 			});
-			$('#resumePage').hide();
-			$('#resumeListPage').show();
+			$('#resumePage').fadeOut(1000, function() {
+				$('#resumeListPage').fadeIn();
+			});			
 		},
 		
 		resume: function(id) {
-			$('#resumeListPage').hide();
-			$('#resumePage').show();
+			$('#resumeListPage').fadeOut(1000, function() {
+				$('#resumePage').fadeIn();
+			});
 			new App.Views.Resume({resumeId:id});
 		}
 		

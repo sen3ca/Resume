@@ -38,6 +38,9 @@ if($requestMethod == "GET"){
 				case "custom":
 					print getCustom($secondParam);
 					break;
+				case "education":
+					print getEducation($secondParam);
+					break;
 				default:
 					exit();
 			}
@@ -49,7 +52,7 @@ if($requestMethod == "GET"){
 	switch($firstParam){
 		case "resume":
 			if(!$thirdParam) {
-				print "{id:\"".insertResume($_POST["name"], $_POST["email"], $_POST["password"])."\"}";
+				print "{id:\"".insertResume($_POST["name"], $_POST["email"], $_POST["jobTitle"], $_POST["password"])."\"}";
 			}
 			switch ($thirdParam) {
 				case "mission":
@@ -60,6 +63,9 @@ if($requestMethod == "GET"){
 					break;
 				case "job":
 					insertJob($secondParam, $_POST["companyName"], $_POST["beginDate"], $_POST["endDate"], $_POST["description"], $_POST["satisfaction"]);
+					break;
+				case "education":
+					insertEducation($secondParam, $_POST["schoolName"], $_POST["beginDate"], $_POST["endDate"], $_POST["description"]);
 					break;
 				case "custom":
 					insertCustom($secondParam, $_POST["title"], $_POST["text"]);
@@ -77,4 +83,4 @@ insertJob($resumeId, "IBM", "10-APR-90", "10-APR-90", "great", 5);
 insertCustom($resumeId, "MySex Lif", "Is GRrrrrrrrrrreat");
 */
 ?>
-
+Done, click Back

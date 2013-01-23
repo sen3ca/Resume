@@ -5,91 +5,141 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
 	</head>
+	<style>
+		div {
+			width:800px;
+			border:1px solid white;
+			margin:20px;
+			padding:20px;
+			font-weight:bold;
+			color:#AE3DFF;
+		}
+		form {
+			color:white;
+			font-weight:normal;
+		}
+	</style>
 	<body style="color:white;">
+		<h1 style="margin-left:20px;">test page</h1>
 		<div>
 			Insert Resume<br />
 			<form action="rest/resume" method="POST">
-				Name <input name="name" type="text" />
-				Email <input name="email" type="text" />
-				Password <input name="password" type="text" />
-				<input type="submit" value="submit it" />
+				Name <input name="name" type="text" /><br />
+				Email <input name="email" type="text" /><br />
+				Job Title <input name="jobTitle" type="text" /><br />
+				Password <input name="password" type="text" /><br />
+				<input type="button" value="submit it" /><br />
 			</form>
 		</div>
+		<div id="enterId" style="background-color:blue;color:white;">
+			For remaining fields enter resume id you want to associate them with<br />
+			<input id="resumeId" type="text" />
+		</div>
 		<div>
-			Insert Mission<br />
-			<form action="rest/resume/121/mission" method="POST">
-				Staement <input name="statement" type="text" />
-				<input type="submit" value="submit it" />
+			Insert Mission (just 1)<br />
+			<form action="rest/resume/?/mission" method="POST">
+				Staement <input name="statement" type="text" /><br />
+				<input type="button" value="submit it" />
 			</form>
 		</div>
 		<div>
 			Insert Skill<br />
-			<form action="rest/resume/121/skill" method="POST">
-				skill <input name="skill" type="text" />
-				proficieny <input name="proficiency" type="text" />
-				<input type="submit" value="submit it" />
+			<form action="rest/resume/?/skill" method="POST">
+				skill <input name="skill" type="text" /><br />
+				proficieny <input name="proficiency" type="text" /><br />
+				<input type="button" value="submit it" />
 			</form>
 		</div>
 		<div>
 			Insert Job History<br />
-			<form action="rest/resume/121/job" method="POST">
-				Company Name <input name="companyName" type="text" />
-				Begin Date <input name="beginDate" type="text" />
-				End Date <input name="endDate" type="text" />
-				Description <input name="description" type="text" />
-				Satisfaction <input name="satisfaction" type="text" />
-				<input type="submit" value="submit it" />
+			<form action="rest/resume/?/job" method="POST">
+				Company Name <input name="companyName" type="text" /><br />
+				Begin Date (YYYY-MM-DD)<input name="beginDate" type="text" /><br />
+				End Date (YYYY-MM-DD)<input name="endDate" type="text" /><br />
+				Description <input name="description" type="text" /><br />
+				Satisfaction <input name="satisfaction" type="text" /><br />
+				<input type="button" value="submit it" />
 			</form>
 		</div>
 		<div>
-			Insert Custom<br />
-			<form action="rest/resume/121/custom" method="POST">
-				Title <input name="title" type="text" />
-				Text <input name="text" type="text" />
-				<input type="submit" value="submit it" />
+			Insert Education History<br />
+			<form action="rest/resume/?/education" method="POST">
+				School Name <input name="schoolName" type="text" /><br />
+				Begin Date (YYYY-MM-DD)<input name="beginDate" type="text" /><br />
+				End Date (YYYY-MM-DD)<input name="endDate" type="text" /><br />
+				Description <input name="description" type="text" /><br />
+				<input type="button" value="submit it" />
+			</form>
+		</div>
+		<div>
+			Insert Custom (just 1)<br />
+			<form action="rest/resume/?/custom" method="POST">
+				Title <input name="title" type="text" /><br />
+				Text <input name="text" type="text" /><br />
+				<input type="button" value="submit it" />
 			</form>
 		</div>
 		<div>
 			Get Resumes<br>
 			<form action="rest/resume" method="GET">
-				<input type="submit" value="submit it" />
+				<input type="button" value="submit it" />
 			</form>
 		</div>
 		<div>
 			Get Resume<br>
-			<form action="rest/resume/121" method="GET">
-				<input type="submit" value="submit it" />
+			<form action="rest/resume/?" method="GET">
+				<input type="button" value="submit it" />
 			</form>
 		</div>
 		<div>
 			Get Mission<br>
-			<form action="rest/resume/121/mission" method="GET">
-				<input type="submit" value="submit it" />
+			<form action="rest/resume/?/mission" method="GET">
+				<input type="button" value="submit it" />
 			</form>
 		</div>
 		<div>
 			Get skills<br>
-			<form action="rest/resume/121/skills" method="GET">
-				<input type="submit" value="submit it" />
+			<form action="rest/resume/?/skills" method="GET">
+				<input type="button" value="submit it" />
 			</form>
 		</div>
 		<div>
 			Get jobs<br>
-			<form action="rest/resume/121/jobs" method="GET">
-				<input type="submit" value="submit it" />
+			<form action="rest/resume/?/jobs" method="GET">
+				<input type="button" value="submit it" />
+			</form>
+		</div>
+		<div>
+			Get education<br>
+			<form action="rest/resume/?/education" method="GET">
+				<input type="button" value="submit it" />
 			</form>
 		</div>
 		<div>
 			Get custom<br>
-			<form action="rest/resume/121/custom" method="GET">
-				<input type="submit" value="submit it" />
+			<form action="rest/resume/?/custom" method="GET">
+				<input type="button" value="submit it" />
 			</form>
 		</div>
 		
-	</body>
-	<script>
-	$(document).ready(function() {
+		<!-- some people say br tags are a sin -->
+		<br><br><br><br><br><br><br><br><br><br>
 		
-	});
-	</script>
+		<script>
+		$(document).ready(function() {
+			$(':button').on('click', function() {
+				if($(this).closest("form").attr("action").indexOf('?') > -1){
+					if($.trim($('#resumeId').val()) == '') {
+						$('#enterId').closest('div').css('background-color', 'red');
+						$('html, body').animate({scrollTop:0}, 'slow');
+						return;
+					} else {
+						$(this).closest("form").attr("action", $(this).closest("form").attr("action").replace('?',$.trim($('#resumeId').val())));
+					}
+				}
+				$(this).closest("form").submit();
+			});
+		});
+		</script>
+	</body>
 </html>

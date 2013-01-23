@@ -6,14 +6,23 @@ App.Views.Resumes = Backbone.View.extend({
 	className: 'resumeList',
 	id: 'resumeList',
 	events : {
-		"click .resume": "gotoResume"
+		"click .resume": "gotoResume",
+		"mouseover .resume": "growResume",
+		"mouseleave .resume": "shrinkResume"
 	},
 	gotoResume : function(e) {
 		console.log(e.target.id);
 		router.navigate('resume/'+e.target.id, { trigger: true });
 	},
+	growResume : function(e) {
+		$(e.target).animate({'width':'100%'});
+		
+	},
+	shrinkResume : function(e) {
+		$(e.target).animate({'width':'100px'});
+		
+	},
 	initialize: function() {
-		$(this.el).html('');
 		this.render();
 	},
 	render: function() {
@@ -21,23 +30,31 @@ App.Views.Resumes = Backbone.View.extend({
 		this.collection.each(function(resume){
 			html+=this.template(resume.toJSON());
 		},this);
-		$(this.el).append(html);
+		$(this.el).html(html);
 		return this;
 	}
 });
 
 App.Views.Resume = Backbone.View.extend({
 	el : '#resume',
-	template : 'resumeTemplate',
+	template : htmlTemplate('resumeHeaderTemplate'),
 	initialize : function(obj) {
+		this.resume = new App.Models.Resume({id:obj.resumeId});
 		this.mission = new App.Models.Mission({resumeId:obj.resumeId});
 		this.custom = new App.Models.Custom({resumeId:obj.resumeId});
 		this.skills = new App.Collections.Skills({resumeId:obj.resumeId});
 		this.jobs = new App.Collections.Jobs({resumeId:obj.resumeId});
+		this.education = new App.Collections.Education({resumeId:obj.resumeId});
 		this.render();
 	},
 	render: function() {
-		self=this;
+		var self=this;
+		
+		this.resume.fetch().then(function() {
+			var html=self.template(self.resume.toJSON()[0]);
+			$(self.el).html(html);
+		});
+		
 		this.mission.fetch().then(function() {
 			new App.Views.Mission({ model: self.mission });
 		});
@@ -50,6 +67,10 @@ App.Views.Resume = Backbone.View.extend({
 		this.jobs.fetch().then(function() {
 			new App.Views.Jobs({ collection: self.jobs });
 		});
+		this.education.fetch().then(function() {
+			new App.Views.Education({ collection: self.education });
+		});
+		return this;
 	}
 		
 });
@@ -63,7 +84,7 @@ App.Views.Mission = Backbone.View.extend({
 	},
 	render: function() {
 		var html=this.template(this.model.toJSON()[0]);
-		$(this.el).append(html);
+		$(this.el).html(html);
 		return this;
 	}
 });
@@ -93,6 +114,22 @@ App.Views.Skills = Backbone.View.extend({
 		var html="";
 		this.collection.each(function(skill){
 			html+=this.template(skill.toJSON());
+		},this);
+		$(this.el).html(html);
+		return this;
+	}
+});
+
+App.Views.Education = Backbone.View.extend({
+	el : '#education',
+	template : htmlTemplate('educationTemplate'),
+	initialize: function() {
+		this.render();
+	},
+	render: function() {
+		var html="";
+		this.collection.each(function(education){
+			html+=this.template(education.toJSON());
 		},this);
 		$(this.el).html(html);
 		return this;

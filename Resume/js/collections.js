@@ -19,5 +19,13 @@ App.Collections.Jobs = Backbone.Collection.extend({
 	url: 'rest/resume/%1/jobs'
 });
 
+App.Collections.Education = Backbone.Collection.extend({
+	initialize : function(obj) {
+		this.url = replaceUrlWithArgs(this.url,obj.resumeId);
+	},
+	model: App.Models.Education,
+	url: 'rest/resume/%1/education'
+});
+
 
 

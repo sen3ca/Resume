@@ -18,3 +18,4 @@ App.Models.Custom = Backbone.Model.extend({
 
 App.Models.Skill = Backbone.Model.extend({});
 App.Models.Job = Backbone.Model.extend({});
+App.Models.Education = Backbone.Model.extend({});

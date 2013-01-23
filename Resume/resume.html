@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>R&eacute;sum&eacute;s!</title>
+	<link rel="stylesheet" type="text/css" href="css/resume.css" />
+</head>
+<body>
+
+<div id="resumeListPage" style="display:none;">
+	<h1>Available R&eacute;sum&eacute;s</h1>
+	<div id="resumes"></div>
+</div>
+
+<div id="resumePage" style="display:none;">
+	<div id="resume"></div>
+	<div id="mission"></div>
+	<div id="skills"></div>
+	<div id="jobs"></div>
+	<div id="custom"></div>
+</div>
+
+
+<!--  TEMPLATES   -->
+<script type="text/template" id="resumesListTemplate">
+	<div class="resume" id="<%= id %>">
+		<%= name %>
+	</div>
+</script>
+<script type="text/template" id="resumeHeaderTemplate">
+	<div class="resume" id="<%= id %>">
+		<%= name %>
+	</div>
+</script>
+<script type="text/template" id="missionTemplate">
+	<div class="mission" id="<%= id %>">
+		<%= statement %>
+	</div>
+</script>
+<script type="text/template" id="skillsTemplate">
+	<div class="skill" id="<%= id %>">
+		<%= skill %> -- 
+		<%= proficiency %> 
+	</div>
+</script>
+<script type="text/template" id="jobsTemplate">
+	<div class="job" id="<%= id %>">
+		<%= company_name %> -- 
+		<%= begin_date %> -- 
+		<%= end_date %> --
+		<%= description %> --
+		<%= satisfaction %> --
+	</div>
+</script>
+<script type="text/template" id="customTemplate">
+	<div class="resume" id="<%= id %>">
+		<%= title %> --
+		<%= text %>
+	</div>
+</script>
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="js/underscore-min.js"></script>
+<script src="js/backbone-min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/models.js"></script>
+<script src="js/collections.js"></script>
+<script src="js/views.js"></script>
+<script>
+	$(document).ready(function() {
+		window.router = new App.Router;
+		Backbone.history.start();
+	});
+</script>
+</body>
+</html>

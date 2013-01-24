@@ -102,9 +102,6 @@ var Pong = function() {
 		} else {
 			ball.velocity.y = 5*-1;
 		}
-		
-		console.log(ball.velocity.x);
-		console.log(ball.velocity.y);
 	};
 
 	var createScores = function() {

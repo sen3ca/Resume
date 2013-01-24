@@ -10,19 +10,35 @@ App.Views.Resumes = Backbone.View.extend({
 		"mouseover .resume": "growResume",
 		"mouseleave .resume": "shrinkResume"
 	},
+	getCorrectElementFromTarget : function(e) {
+		if(e.target.id) {
+			return e.target;
+		} else {
+			return $(e.target).parent()[0];
+		}
+		
+	},
 	gotoResume : function(e) {
-		console.log(e.target.id);
-		router.navigate('resume/'+e.target.id, { trigger: true });
+		if(e.target.id) {
+			router.navigate('resume/'+this.getCorrectElementFromTarget(e).id, { trigger: true });
+		} else {
+			router.navigate('resume/'+this.getCorrectElementFromTarget(e).id, { trigger: true });
+		}
 	},
 	growResume : function(e) {
-		$(e.target).animate({'width':'100%'});
-		
+		$(this.getCorrectElementFromTarget(e)).animate({'width':'100%'});
+		$(this.getCorrectElementFromTarget(e)).children('.additional').fadeIn();
 	},
 	shrinkResume : function(e) {
-		$(e.target).animate({'width':'100px'});
-		
+		$(this.getCorrectElementFromTarget(e)).animate({'width':'100px',"display":"none"});
+		$(this.getCorrectElementFromTarget(e)).children('.additional').fadeOut();
 	},
 	initialize: function() {
+		$('#createResume').on('mouseover', function(){$('#createResume').animate({'width':'100%'})});
+		$('#createResume').on('mouseleave', function(){$('#createResume').animate({'width':'100px'})});
+		$('#createResume').on('click', function() {
+			location.href='testPage.html';
+		});
 		this.render();
 	},
 	render: function() {

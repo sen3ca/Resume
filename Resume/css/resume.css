@@ -30,6 +30,21 @@ body {
       position: absolute;
       right: 0;
       top: -20px; }
+  #resumeListPage #resumes .resume {
+    font-size: 20px;
+    width: 100px;
+    height: 100px;
+    background-color: #003366;
+    color: white;
+    padding: 5px;
+    margin: 10px;
+    overflow: hidden;
+    cursor: pointer; }
+    #resumeListPage #resumes .resume .name {
+      width: 900px;
+      font-size: 2em; }
+    #resumeListPage #resumes .resume .additional {
+      display: none; }
 
 #resumePage {
   margin-top: 20px;
@@ -55,16 +70,32 @@ body {
     #resumePage .resume .email {
       text-align: right;
       font-size: 20px; }
+  #resumePage .skill {
+    float: left;
+    padding: 10px;
+    height: 25px; }
+  #resumePage .job {
+    padding: 10px; }
 
-#resumes .resume {
-  font-size: 40px;
+#createResume {
+  font-size: 20px;
   width: 100px;
   height: 100px;
-  background-color: red;
+  background-color: #003366;
+  color: white;
   padding: 5px;
   margin: 10px;
   overflow: hidden;
-  cursor: pointer; }
+  cursor: pointer;
+  color: #003366;
+  border: solid black 1px;
+  background-color: white;
+  font-size: 3em; }
+  #createResume .name {
+    width: 900px;
+    font-size: 2em; }
+  #createResume .name {
+    width: 900px; }
 
 .headerWrapper {
   margin-top: 15px;

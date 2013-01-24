@@ -15,17 +15,24 @@
 	<div id="mission"></div>
 	<div class="headerWrapper"><div class="header">Skills</div></div>
 	<div id="skills"></div>
+	<div style="clear:both;"></div>
 	<div class="headerWrapper"><div class="header">Job history</div></div>
 	<div id="jobs"></div>
 	<div class="headerWrapper"><div class="header">Education</div></div>
 	<div id="education"></div>
-	<div class="headerWrapper"><div class="header">Custom</div></div>
+	<div class="headerWrapper" style="display:none;"><div class="header">Custom</div></div>
 	<div id="custom"></div>
+	
 </div>
 
 <div id="resumeListPage" style="display:none;">
 	<div class="titleHolder">
 		<div class="title">Resum&eacute;s</div>
+	</div>
+	<div id="createResume">
+		<div class="name" id="-2">
+			Create Resume
+		</div>
 	</div>
 	<div id="resumes"></div>
 </div>
@@ -35,7 +42,17 @@
 <!--  TEMPLATES   -->
 <script type="text/template" id="resumesListTemplate">
 	<div class="resume" id="<%= id %>">
-		<%= name %>
+		<div class="name">
+			<%= name %>
+		</div>
+		<div class="additional">
+			<div class="jobTitle">
+				<%= job_title %>
+			</div>
+			<div class="email"> 
+				<%= email %>
+			</div>
+		</div>
 	</div>
 </script>
 <script type="text/template" id="resumeHeaderTemplate">
@@ -57,30 +74,28 @@
 	</div>
 </script>
 <script type="text/template" id="skillsTemplate">
-	<div class="skill" id="<%= id %>">
-		<%= skill %> -- 
-		<%= proficiency %> 
+	<div class="skill" id="<%= id %>" style="font-size:<%= proficiency * 3%>px;">
+		<%= skill %>
 	</div>
 </script>
 <script type="text/template" id="jobsTemplate">
 	<div class="job" id="<%= id %>">
-		<%= company_name %> -- 
-		<%= begin_date %> -- 
-		<%= end_date %> --
-		<%= description %> --
-		<%= satisfaction %>
+		<div style="font-size:20px;"><%= company_name %></div>  
+		<div><%= begin_date %> - <%= end_date %></div>
+		<%= description%>
+		<!-- <%= satisfaction %> -->
 	</div>
 </script>
 <script type="text/template" id="educationTemplate">
 	<div class="job" id="<%= id %>">
-		<%= school_name %> -- 
-		<%= start_date %> -- 
-		<%= end_date %> --
-		<%= description %> --
+		<div style="font-size:20px;"><%= school_name %></div> 
+		<%= start_date %> - <%= end_date %><br />
+		<%= description %>
 	</div>
 </script>
+
 <script type="text/template" id="customTemplate">
-	<div class="custom" id="<%= id %>">
+	<div class="custom" id="<%= id %>" style="display:none;">
 		<%= title %> --
 		<%= text %>
 	</div>

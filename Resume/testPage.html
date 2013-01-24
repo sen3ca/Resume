@@ -20,7 +20,7 @@
 		}
 	</style>
 	<body style="color:white;">
-		<h1 style="margin-left:20px;">test page</h1>
+		<h1 style="margin-left:20px;">test page (my apologizes, this is very crude)</h1>
 		<div>
 			Insert Resume<br />
 			<form action="rest/resume" method="POST">
@@ -38,7 +38,7 @@
 		<div>
 			Insert Mission (just 1)<br />
 			<form action="rest/resume/?/mission" method="POST">
-				Staement <input name="statement" type="text" /><br />
+				Statement <textarea name="statement" type="text"></textarea><br />
 				<input type="button" value="submit it" />
 			</form>
 		</div>
@@ -56,7 +56,7 @@
 				Company Name <input name="companyName" type="text" /><br />
 				Begin Date (YYYY-MM-DD)<input name="beginDate" type="text" /><br />
 				End Date (YYYY-MM-DD)<input name="endDate" type="text" /><br />
-				Description <input name="description" type="text" /><br />
+				Description <textarea name="description" type="text"></textarea><br />
 				Satisfaction <input name="satisfaction" type="text" /><br />
 				<input type="button" value="submit it" />
 			</form>
@@ -67,7 +67,7 @@
 				School Name <input name="schoolName" type="text" /><br />
 				Begin Date (YYYY-MM-DD)<input name="beginDate" type="text" /><br />
 				End Date (YYYY-MM-DD)<input name="endDate" type="text" /><br />
-				Description <input name="description" type="text" /><br />
+				Description <textarea name="description" type="text"></textarea><br />
 				<input type="button" value="submit it" />
 			</form>
 		</div>
@@ -75,7 +75,7 @@
 			Insert Custom (just 1)<br />
 			<form action="rest/resume/?/custom" method="POST">
 				Title <input name="title" type="text" /><br />
-				Text <input name="text" type="text" /><br />
+				Text Description <textarea name="name" type="text"></textarea><br /><br />
 				<input type="button" value="submit it" />
 			</form>
 		</div>

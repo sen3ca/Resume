@@ -1,3 +1,19 @@
+@mixin resumeFormat {
+	font-size:20px;
+	width:100px;
+	height:100px;
+	background-color:#003366;
+	color:white;
+	padding:5px;
+	margin:10px;
+	overflow:hidden;
+	cursor:pointer;
+	.name {
+		width:900px;
+		font-size:2em;
+	}
+}
+
 body {
 	width:100%;
 	min-height:2000px;
@@ -33,6 +49,15 @@ body {
 			top:-20px;
 		}
 	}	
+	
+	#resumes {
+		.resume {
+			@include resumeFormat;
+			.additional {
+				display:none;
+			}
+		}
+	}
 }
 
 #resumePage {
@@ -64,18 +89,24 @@ body {
 			font-size:20px;
 		}
 	}
+	.skill {
+		float:left;
+		padding:10px;
+		height:25px;
+	}
+	.job {
+		padding:10px;
+	}
 }
 
-#resumes {
-	.resume {
-		font-size:40px;
-		width:100px;
-		height:100px;
-		background-color:red;
-		padding:5px;
-		margin:10px;
-		overflow:hidden;
-		cursor:pointer;
+#createResume {
+	@include resumeFormat;
+	color:#003366;
+	border: solid black 1px;
+	background-color:white;
+	font-size:3em;
+	.name {
+		width:900px;
 	}
 }
 
